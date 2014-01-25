@@ -24,3 +24,5 @@ build
 .gradle/1.7/taskArtifacts/taskArtifacts.bin
 
 async.log
+
+*.log

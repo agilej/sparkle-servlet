@@ -7,14 +7,19 @@ import me.donnior.sparkle.ext.EnvSpecific;
 
 public class ServletSpecific implements EnvSpecific {
 
+    private ParamResolversManager prm = new ServletParamResolversManager();
+    
+    private ViewRendersResovler vrr = new ServletViewRendersResovler();
+    
+    
     @Override
     public ParamResolversManager getParamsResolverManager() {
-        return new ServletParamResolversManager();
+        return prm;
     }
 
     @Override
     public ViewRendersResovler getViewRendersResovler() {
-        return new ServletViewRendersResovler();
+        return vrr;
     }
 
 }
