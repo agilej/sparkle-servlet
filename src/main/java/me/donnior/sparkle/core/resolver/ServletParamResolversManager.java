@@ -7,6 +7,7 @@ public class ServletParamResolversManager extends AbstractParamResolversManager 
         registerArgumentResolver(new HttpResponseArgumentResolver());
         registerArgumentResolver(new ParamInstanceArgumentResolver());
         registerArgumentResolver(new SimpleArgumentResolver());
+        registerArgumentResolver(new PathVariableArgumentResolver());
     }
         
 }

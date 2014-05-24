@@ -5,6 +5,7 @@ import java.util.List;
 import me.donnior.fava.util.FLists;
 import me.donnior.sparkle.annotation.Controller;
 import me.donnior.sparkle.annotation.Json;
+import me.donnior.sparkle.annotation.PathVariable;
 import me.donnior.sparkle.annotation.Text;
 import me.donnior.srape.AbstractFieldExposerModule;
 import me.donnior.srape.FieldExposerModule;
@@ -29,6 +30,11 @@ public class ProjectController {
     @Text
     public String text(){
         return "{'msg':'Hello World'}";
+    }
+
+    @Text
+    public String show(@PathVariable("id") String id){
+        return "{'msg':'project " + id  +"'}";
     }
     
 }

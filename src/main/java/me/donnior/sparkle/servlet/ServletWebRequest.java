@@ -66,4 +66,14 @@ public class ServletWebRequest implements WebRequest{
         return this.webResponse;
     }
 
+    @Override
+    public <T> T getAttribute(String attrName) {
+        return (T)this.request.getAttribute(attrName);
+    }
+    
+    @Override
+    public void setAttribute(String name, Object value) {
+        this.request.setAttribute(name, value);
+    }
+    
 }
