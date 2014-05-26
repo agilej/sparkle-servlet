@@ -1,4 +1,4 @@
-package me.donnior.sparkle.servlet;
+package me.donnior.sparkle.servlet.initializer;
 
 import java.io.IOException;
 
@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import me.donnior.sparkle.HTTPMethod;
 import me.donnior.sparkle.engine.SparkleEngine;
+import me.donnior.sparkle.servlet.ServletSpecific;
+import me.donnior.sparkle.servlet.ServletWebRequest;
 
 public class SparkleDispatcherServlet extends HttpServlet {
     

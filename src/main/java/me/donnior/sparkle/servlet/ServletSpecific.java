@@ -1,10 +1,10 @@
 package me.donnior.sparkle.servlet;
 
-import me.donnior.sparkle.core.resolver.ServletParamResolversManager;
 import me.donnior.sparkle.core.resolver.ParamResolversManager;
 import me.donnior.sparkle.core.view.ViewRendersResovler;
 import me.donnior.sparkle.engine.RequestLifeCycleManager;
 import me.donnior.sparkle.ext.EnvSpecific;
+import me.donnior.sparkle.servlet.resolver.ServletParamResolversManager;
 
 public class ServletSpecific implements EnvSpecific {
 

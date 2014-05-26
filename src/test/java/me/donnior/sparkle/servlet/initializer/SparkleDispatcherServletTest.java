@@ -1,4 +1,4 @@
-package me.donnior.sparkle.servlet;
+package me.donnior.sparkle.servlet.initializer;
 
 import java.io.IOException;
 
@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import me.donnior.sparkle.HTTPMethod;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.engine.SparkleEngine;
+import me.donnior.sparkle.servlet.initializer.SparkleDispatcherServlet;
 
 import org.junit.Before;
 import org.junit.Test;

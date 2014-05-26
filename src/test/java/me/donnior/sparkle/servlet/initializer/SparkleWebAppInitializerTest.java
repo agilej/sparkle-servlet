@@ -1,4 +1,4 @@
-package me.donnior.sparkle.servlet;
+package me.donnior.sparkle.servlet.initializer;
 
 import java.io.InputStream;
 import java.net.MalformedURLException;

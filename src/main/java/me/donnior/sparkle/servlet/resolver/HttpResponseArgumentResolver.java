@@ -1,10 +1,11 @@
-package me.donnior.sparkle.core.resolver;
+package me.donnior.sparkle.servlet.resolver;
 
 import javax.servlet.http.HttpServletResponse;
 
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.annotation.Param;
 import me.donnior.sparkle.core.ActionMethodParamDefinition;
+import me.donnior.sparkle.core.resolver.ArgumentResolver;
 
 /**
  * Argument resolver for argument annotated with {@link Param} 

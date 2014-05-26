@@ -1,4 +1,4 @@
-package me.donnior.sparkle.core.view;
+package me.donnior.sparkle.servlet.view;
 
 import java.io.IOException;
 
@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.core.ActionMethodDefinition;
+import me.donnior.sparkle.core.view.ViewRender;
 
 public class RedirectViewRender implements ViewRender {
     

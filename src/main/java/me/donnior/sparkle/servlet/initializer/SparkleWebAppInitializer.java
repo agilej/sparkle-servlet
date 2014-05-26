@@ -1,4 +1,4 @@
-package me.donnior.sparkle.servlet;
+package me.donnior.sparkle.servlet.initializer;
 
 import java.util.Set;
 
@@ -6,6 +6,8 @@ import javax.servlet.ServletContainerInitializer;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+
+import me.donnior.sparkle.servlet.StaticWrapperServlet;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

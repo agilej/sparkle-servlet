@@ -1,9 +1,10 @@
-package me.donnior.sparkle.core.resolver;
+package me.donnior.sparkle.servlet.resolver;
 
 import javax.servlet.http.HttpServletRequest;
 
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.core.ActionMethodParamDefinition;
+import me.donnior.sparkle.core.resolver.ArgumentResolver;
 
 /**
  * Argument resolver for argument with type HttpServletRequest 

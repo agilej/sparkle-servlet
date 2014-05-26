@@ -14,17 +14,17 @@ import me.donnior.sparkle.core.ActionMethodDefinition;
 import me.donnior.sparkle.core.ActionMethodParamDefinition;
 import me.donnior.sparkle.core.resolver.ActionMethodDefinitionFinder;
 import me.donnior.sparkle.core.resolver.DefaulActionParamDefinition;
-import me.donnior.sparkle.core.resolver.ParamInstanceArgumentResolver;
-import me.donnior.sparkle.core.resolver.ServletParamResolversManager;
 import me.donnior.sparkle.core.resolver.SimpleArgumentResolver;
 import me.donnior.sparkle.servlet.ServletWebRequest;
+import me.donnior.sparkle.servlet.resolver.ParamInstanceArgumentResolver;
+import me.donnior.sparkle.servlet.resolver.ServletParamResolversManager;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-public class DefaultParamResolversManagerTest {
+public class ServletParamResolversManagerTest {
     
     private ServletParamResolversManager manager;
     
@@ -35,7 +35,7 @@ public class DefaultParamResolversManagerTest {
     
     @Test
     public void testDefaultConstructor(){
-        assertEquals(4, manager.registeredResolvers().size());
+        assertEquals(5, manager.registeredResolvers().size());
         assertEquals(ParamInstanceArgumentResolver.class, manager.registeredResolvers().get(2).getClass());
         assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(3).getClass());
     }
