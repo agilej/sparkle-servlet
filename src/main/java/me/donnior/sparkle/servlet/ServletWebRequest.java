@@ -56,6 +56,7 @@ public class ServletWebRequest implements WebRequest{
         return this.request.getParameterValues(paramName);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public HttpServletResponse getOriginalResponse() {
         return this.webResponse.getOriginalResponse();
@@ -66,6 +67,7 @@ public class ServletWebRequest implements WebRequest{
         return this.webResponse;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public <T> T getAttribute(String attrName) {
         return (T)this.request.getAttribute(attrName);

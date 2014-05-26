@@ -3,6 +3,7 @@ package demo;
 import java.util.List;
 
 import me.donnior.fava.util.FLists;
+import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.annotation.Controller;
 import me.donnior.sparkle.annotation.Json;
 import me.donnior.sparkle.annotation.PathVariable;
@@ -33,7 +34,7 @@ public class ProjectController {
     }
 
     @Text
-    public String show(@PathVariable("id") String id){
+    public String show(@PathVariable("id") String id, WebRequest request){
         return "{'msg':'project " + id  +"'}";
     }
     

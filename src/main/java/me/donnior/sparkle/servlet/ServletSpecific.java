@@ -1,27 +1,27 @@
 package me.donnior.sparkle.servlet;
 
-import me.donnior.sparkle.core.resolver.ParamResolversManager;
-import me.donnior.sparkle.core.view.ViewRendersResovler;
+import me.donnior.sparkle.core.resolver.ArgumentResolverManager;
+import me.donnior.sparkle.core.view.ViewRenderManager;
 import me.donnior.sparkle.engine.RequestLifeCycleManager;
 import me.donnior.sparkle.ext.EnvSpecific;
-import me.donnior.sparkle.servlet.resolver.ServletParamResolversManager;
+import me.donnior.sparkle.servlet.resolver.ServletEnvironmentArgumentResolverManager;
 
 public class ServletSpecific implements EnvSpecific {
 
-    private ParamResolversManager prm = new ServletParamResolversManager();
+    private ArgumentResolverManager prm = new ServletEnvironmentArgumentResolverManager();
     
-    private ViewRendersResovler vrr = new ServletViewRendersResovler();
+    private ViewRenderManager vrr = new ServletViewRenderManager();
     
     private RequestLifeCycleManager rlcm = new ServletRequestLifeCycleManager();
     
     
     @Override
-    public ParamResolversManager getParamsResolverManager() {
+    public ArgumentResolverManager getArgumentResolverManager() {
         return prm;
     }
 
     @Override
-    public ViewRendersResovler getViewRendersResovler() {
+    public ViewRenderManager getViewRendersResovler() {
         return vrr;
     }
 

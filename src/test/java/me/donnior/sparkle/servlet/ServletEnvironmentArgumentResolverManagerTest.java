@@ -17,27 +17,27 @@ import me.donnior.sparkle.core.resolver.DefaulActionParamDefinition;
 import me.donnior.sparkle.core.resolver.SimpleArgumentResolver;
 import me.donnior.sparkle.servlet.ServletWebRequest;
 import me.donnior.sparkle.servlet.resolver.ParamInstanceArgumentResolver;
-import me.donnior.sparkle.servlet.resolver.ServletParamResolversManager;
+import me.donnior.sparkle.servlet.resolver.ServletEnvironmentArgumentResolverManager;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.common.collect.Lists;
 
-public class ServletParamResolversManagerTest {
+public class ServletEnvironmentArgumentResolverManagerTest {
     
-    private ServletParamResolversManager manager;
+    private ServletEnvironmentArgumentResolverManager manager;
     
     @Before
     public void setup(){
-        manager = new ServletParamResolversManager();
+        manager = new ServletEnvironmentArgumentResolverManager();
     }
     
     @Test
     public void testDefaultConstructor(){
-        assertEquals(5, manager.registeredResolvers().size());
-        assertEquals(ParamInstanceArgumentResolver.class, manager.registeredResolvers().get(2).getClass());
-        assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(3).getClass());
+        assertEquals(6, manager.registeredResolvers().size());
+        assertEquals(ParamInstanceArgumentResolver.class, manager.registeredResolvers().get(3).getClass());
+        assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(4).getClass());
     }
     
     @Test (expected=RuntimeException.class)

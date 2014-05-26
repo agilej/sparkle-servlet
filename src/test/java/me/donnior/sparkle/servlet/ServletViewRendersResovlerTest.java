@@ -15,7 +15,7 @@ public class ServletViewRendersResovlerTest {
 
     @Test
     public void testResolveViewRenders(){
-        ServletViewRendersResovler r = new ServletViewRendersResovler();
+        ServletViewRenderManager r = new ServletViewRenderManager();
         List<Class<? extends ViewRender>> viewRenderClasses = new ArrayList<Class<? extends ViewRender>>();
         List<? extends ViewRender> resovleRegisteredViewRenders = r.resovleRegisteredViewRenders(viewRenderClasses);
         
