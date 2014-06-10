@@ -2,11 +2,14 @@ package me.donnior.sparkle.servlet.initializer;
 
 import java.util.Set;
 
+import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletContainerInitializer;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+import me.donnior.sparkle.engine.SparkleEngine;
+import me.donnior.sparkle.servlet.ServletSpecific;
 import me.donnior.sparkle.servlet.StaticWrapperServlet;
 
 import org.slf4j.Logger;
@@ -26,17 +29,23 @@ public class SparkleWebAppInitializer implements ServletContainerInitializer {
     @Override
     public void onStartup(Set<Class<?>> arg0, ServletContext servletContext) throws ServletException {
         
+        SparkleEngine engine = new SparkleEngine(new ServletSpecific());
+        SparkleDispatcherServlet dispatcherServlet = new SparkleDispatcherServlet(engine);
         
-        ServletRegistration.Dynamic appServlet = 
-                servletContext.addServlet(SPARKLE_SERVLET_NAME, new SparkleDispatcherServlet());
+        ServletRegistration.Dynamic appServlet = servletContext.addServlet(SPARKLE_SERVLET_NAME, dispatcherServlet);
         appServlet.setLoadOnStartup(1);
+        
+        //TODO how to deal with this multipart configuration
+        MultipartConfigElement mc = new MultipartConfigElement("/Users/donnior/", 1024*1024*10, -1, -1);
+        appServlet.setMultipartConfig(mc);
         Set<String> mappingConflicts = appServlet.addMapping("/");
+        
         appServlet.setAsyncSupported(true);
         
         ensureContainerSpecifiedEnv(mappingConflicts);
         
-        ServletRegistration.Dynamic staticServlet = 
-                servletContext.addServlet(STATIC_SERVLET_NAME, new StaticWrapperServlet());
+        StaticWrapperServlet staticWrapperServlet = new StaticWrapperServlet("/static");
+        ServletRegistration.Dynamic staticServlet = servletContext.addServlet(STATIC_SERVLET_NAME, staticWrapperServlet);
         staticServlet.setLoadOnStartup(1);
         staticServlet.addMapping("/static/*");
     }

@@ -4,10 +4,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Collection;
+import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
+import me.donnior.fava.Function;
+import me.donnior.fava.util.FLists;
+import me.donnior.sparkle.Multipart;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.WebResponse;
 
@@ -127,6 +134,24 @@ public class ServletWebRequest implements WebRequest{
     @Override
     public void setAttribute(String name, Object value) {
         this.request.setAttribute(name, value);
+    }
+    
+    @Override
+    public List<Multipart> getMultiparts(){
+        Collection<Part> parts = null;
+        try {
+            parts = this.request.getParts();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
+        return FLists.safeCreate(parts).map(new Function<Part, Multipart>() {
+            @Override
+            public Multipart apply(Part part) {
+                return new ServletMultipartAdapter(part);
+            }
+        });
     }
     
 }

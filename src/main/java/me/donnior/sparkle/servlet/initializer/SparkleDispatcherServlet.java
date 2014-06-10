@@ -3,6 +3,7 @@ package me.donnior.sparkle.servlet.initializer;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,6 +13,7 @@ import me.donnior.sparkle.engine.SparkleEngine;
 import me.donnior.sparkle.servlet.ServletSpecific;
 import me.donnior.sparkle.servlet.ServletWebRequest;
 
+@MultipartConfig(maxFileSize=-1, fileSizeThreshold=1024 * 1024 * 10, location="/tmp")
 public class SparkleDispatcherServlet extends HttpServlet {
     
     private static final long serialVersionUID = 1L;

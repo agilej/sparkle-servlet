@@ -15,14 +15,19 @@ public class StaticWrapperServlet extends HttpServlet
      * 
      */
     private static final long serialVersionUID = 1L;
-
+    private final String servletPath;
+    
+    public StaticWrapperServlet(String servletPath) {
+        this.servletPath = servletPath;
+    }
+    
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
     	throws ServletException, IOException
     {
     	RequestDispatcher rd = getServletContext().getNamedDispatcher("default");
 
     	HttpServletRequest wrapped = new HttpServletRequestWrapper(req) {
-    		public String getServletPath() { return "/static"; }
+    		public String getServletPath() { return servletPath; }
     	};
 
     	rd.forward(wrapped, resp);
