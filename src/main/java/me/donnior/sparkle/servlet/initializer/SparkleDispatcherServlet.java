@@ -1,6 +1,7 @@
 package me.donnior.sparkle.servlet.initializer;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -33,50 +34,54 @@ public class SparkleDispatcherServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-       //if ... doService(req, resp, Method.DELETE);
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.GET);
+        
+        this.doService0(req, resp, HTTPMethod.GET);
     }
     
     @Override
     protected void doHead(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.HEAD);
+        this.doService0(req, resp, HTTPMethod.HEAD);
     }
     
     
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.DELETE);
+        this.doService0(req, resp, HTTPMethod.DELETE);
     }
     
     @Override
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.OPTIONS);
+        this.doService0(req, resp, HTTPMethod.OPTIONS);
     }
     
     
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.POST);
+        this.doService0(req, resp, HTTPMethod.POST);
     }
     
     
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.PUT);
+        this.doService0(req, resp, HTTPMethod.PUT);
     }
     
     
     @Override
     protected void doTrace(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        this.sparkle.doService(new ServletWebRequest(req, resp), HTTPMethod.TRACE);
+        this.doService0(req, resp, HTTPMethod.TRACE);
     }
     
+    private void doService0(HttpServletRequest req, HttpServletResponse resp, HTTPMethod method) throws UnsupportedEncodingException{
+        req.setCharacterEncoding("UTF-8");
+        this.sparkle.doService(new ServletWebRequest(req, resp), method);
+    }
     
 
 }

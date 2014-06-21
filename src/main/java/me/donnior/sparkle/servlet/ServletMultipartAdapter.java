@@ -15,15 +15,17 @@ public class ServletMultipartAdapter implements Multipart{
         this.part = part;
     }
     
-    @Override
+    
     public String getName(){
         return this.part.getName();
     }
+    
     
     public InputStream getInputStream(){
         try {
             return this.part.getInputStream();
         } catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
     }

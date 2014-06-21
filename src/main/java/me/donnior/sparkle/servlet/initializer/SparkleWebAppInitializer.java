@@ -36,7 +36,7 @@ public class SparkleWebAppInitializer implements ServletContainerInitializer {
         appServlet.setLoadOnStartup(1);
         
         //TODO how to deal with this multipart configuration
-        MultipartConfigElement mc = new MultipartConfigElement("/Users/donnior/", 1024*1024*10, -1, -1);
+        MultipartConfigElement mc = new MultipartConfigElement("/tmp", 1024*1024*10, -1, -1);
         appServlet.setMultipartConfig(mc);
         Set<String> mappingConflicts = appServlet.addMapping("/");
         
