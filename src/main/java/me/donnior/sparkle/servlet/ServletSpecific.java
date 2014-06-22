@@ -21,7 +21,7 @@ public class ServletSpecific implements EnvSpecific {
     }
 
     @Override
-    public ViewRenderManager getViewRendersResovler() {
+    public ViewRenderManager getViewRendersManager() {
         return vrr;
     }
 
