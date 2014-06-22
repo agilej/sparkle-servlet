@@ -78,7 +78,8 @@ public class SparkleDispatcherServlet extends HttpServlet {
         this.doService0(req, resp, HTTPMethod.TRACE);
     }
     
-    private void doService0(HttpServletRequest req, HttpServletResponse resp, HTTPMethod method) throws UnsupportedEncodingException{
+    private void doService0(HttpServletRequest req, HttpServletResponse resp, HTTPMethod method) 
+            throws UnsupportedEncodingException{
         req.setCharacterEncoding("UTF-8");
         this.sparkle.doService(new ServletWebRequest(req, resp), method);
     }
