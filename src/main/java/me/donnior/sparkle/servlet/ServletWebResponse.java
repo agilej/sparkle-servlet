@@ -1,6 +1,7 @@
 package me.donnior.sparkle.servlet;
 
 import java.io.IOException;
+import java.io.Writer;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -44,5 +45,13 @@ public class ServletWebResponse implements WebResponse {
         this.response.setContentType(type);
     }
      
+    @Override
+    public Writer getWriter(){
+        try {
+            return this.response.getWriter();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     
 }
