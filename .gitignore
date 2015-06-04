@@ -4,7 +4,9 @@
 .project
 
 .gradle/**
-
+*.ipr
+*.iws
+*.iml
 target
 
 build
