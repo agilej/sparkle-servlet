@@ -19,7 +19,7 @@ public class ParamInstanceArgumentResolver implements ArgumentResolver {
     }
 
     @Override
-    public Object resovle(ActionMethodParamDefinition actionParamDefinition, WebRequest request) {
+    public Object resolve(ActionMethodParamDefinition actionParamDefinition, WebRequest request) {
       return new HttpRequestParamsWraper((HttpServletRequest)request.getOriginalRequest());
     }
 

@@ -18,7 +18,7 @@ public class HttpRequestArgumentResolver implements ArgumentResolver {
     }
 
     @Override
-    public Object resovle(ActionMethodParamDefinition actionParamDefinition, WebRequest request) {
+    public Object resolve(ActionMethodParamDefinition actionParamDefinition, WebRequest request) {
         return request.getOriginalRequest();
     }
 
