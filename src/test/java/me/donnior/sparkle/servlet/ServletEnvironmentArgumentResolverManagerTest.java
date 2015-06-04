@@ -13,7 +13,8 @@ import me.donnior.sparkle.annotation.Param;
 import me.donnior.sparkle.core.ActionMethodDefinition;
 import me.donnior.sparkle.core.ActionMethodParamDefinition;
 import me.donnior.sparkle.core.resolver.ActionMethodDefinitionFinder;
-import me.donnior.sparkle.core.resolver.DefaulActionParamDefinition;
+import me.donnior.sparkle.core.resolver.DefaultActionParamDefinition;
+import me.donnior.sparkle.core.resolver.DefaultActionParamDefinition;
 import me.donnior.sparkle.core.resolver.SimpleArgumentResolver;
 import me.donnior.sparkle.servlet.ServletWebRequest;
 import me.donnior.sparkle.servlet.resolver.ParamInstanceArgumentResolver;
@@ -41,7 +42,7 @@ public class ServletEnvironmentArgumentResolverManagerTest {
     }
     
     @Test (expected=RuntimeException.class)
-    public void testCannotFindProperResovler(){
+    public void testCannotFindProperResolver(){
         
         List<Annotation> annotations = Lists.newArrayList();
         annotations.add(new Annotation() {
@@ -53,17 +54,17 @@ public class ServletEnvironmentArgumentResolverManagerTest {
         });
         
         ActionMethodParamDefinition actionParamDefinition = 
-                new DefaulActionParamDefinition(String.class, annotations);
+                new DefaultActionParamDefinition(String.class, annotations);
         
         manager.resolve(actionParamDefinition, null);
         fail();
     }
 
     @Test
-    public void testResovleSucced(){
+    public void testResolveSucceed(){
         
         ActionMethodDefinition actionParamDefinition = 
-                new ActionMethodDefinitionFinder().find(ContrllerForDefaultParamResolversManagerTest.class, "index"); 
+                new ActionMethodDefinitionFinder().find(ControllerForDefaultParamResolversManagerTest.class, "index");
         assertEquals(1, actionParamDefinition.paramDefinitions().size());
                
                 
@@ -75,7 +76,7 @@ public class ServletEnvironmentArgumentResolverManagerTest {
     
 }
 
-class ContrllerForDefaultParamResolversManagerTest{
+class ControllerForDefaultParamResolversManagerTest{
     
     @Json
     public String index(@Param("page") Integer page){
