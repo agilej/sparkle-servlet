@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,6 +23,7 @@ public class ServletWebRequest implements WebRequest{
 
     private final WebResponse webResponse;
     private final HttpServletRequest request;
+    private AsyncContext asyncContext;
 
     public ServletWebRequest(HttpServletRequest request, HttpServletResponse response) {
         this.request = request;
@@ -153,5 +155,21 @@ public class ServletWebRequest implements WebRequest{
             }
         });
     }
-    
+
+    @Override
+    public void startAsync() {
+        this.asyncContext =  this.request.startAsync();
+    }
+
+    @Override
+    public boolean isAsync() {
+        return this.request.isAsyncStarted();
+    }
+
+    @Override
+    public void completeAsync() {
+        this.asyncContext.complete();
+    }
+
+
 }
