@@ -4,8 +4,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import me.donnior.fava.Predicate;
 import me.donnior.fava.util.FLists;
-import me.donnior.sparkle.core.ActionMethodDefinition;
-import me.donnior.sparkle.core.ActionMethodParamDefinition;
+import me.donnior.sparkle.core.ActionMethod;
+import me.donnior.sparkle.core.ActionMethodParameter;
 import me.donnior.sparkle.engine.RequestLifeCycleManager;
 
 public class ServletRequestLifeCycleManager implements RequestLifeCycleManager {
@@ -17,11 +17,11 @@ public class ServletRequestLifeCycleManager implements RequestLifeCycleManager {
      * @return
      */
     @Override
-    public boolean isResponseProcessedManually(ActionMethodDefinition adf) {
-        return FLists.create(adf.paramDefinitions()).any(new Predicate<ActionMethodParamDefinition>() {
+    public boolean isResponseProcessedManually(ActionMethod adf) {
+        return FLists.create(adf.paramDefinitions()).any(new Predicate<ActionMethodParameter>() {
             
             @Override
-            public boolean apply(ActionMethodParamDefinition apd) {
+            public boolean apply(ActionMethodParameter apd) {
                 return apd.paramType().equals(HttpServletResponse.class);
             }
         });

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import me.donnior.fava.FHashMap;
 import me.donnior.fava.MConsumer;
 import me.donnior.sparkle.WebRequest;
-import me.donnior.sparkle.core.ActionMethodDefinition;
+import me.donnior.sparkle.core.ActionMethod;
 import me.donnior.sparkle.core.view.ViewRender;
 import me.donnior.sparkle.core.view.ViewVariablesExposer;
 
@@ -83,7 +83,7 @@ public class JSPViewRender implements ViewRender {
     }
 
     @Override
-    public boolean supportActionMethod(ActionMethodDefinition adf, Object actionMethodResult) {
+    public boolean supportActionMethod(ActionMethod adf, Object actionMethodResult) {
         return void.class.equals(adf.getReturnType()) || String.class.equals(adf.getReturnType());
     }
 

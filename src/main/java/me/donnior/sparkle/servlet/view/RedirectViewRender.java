@@ -5,7 +5,7 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 import me.donnior.sparkle.WebRequest;
-import me.donnior.sparkle.core.ActionMethodDefinition;
+import me.donnior.sparkle.core.ActionMethod;
 import me.donnior.sparkle.core.view.ViewRender;
 
 public class RedirectViewRender implements ViewRender {
@@ -32,7 +32,7 @@ public class RedirectViewRender implements ViewRender {
     }
 
     @Override
-    public boolean supportActionMethod(ActionMethodDefinition adf, Object actionMethodResult) {
+    public boolean supportActionMethod(ActionMethod adf, Object actionMethodResult) {
         return actionMethodResult instanceof String && ((String)actionMethodResult).startsWith(REDIRECT_PREFIX);
     }
     
