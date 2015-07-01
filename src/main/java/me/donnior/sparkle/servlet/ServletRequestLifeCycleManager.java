@@ -13,13 +13,13 @@ public class ServletRequestLifeCycleManager implements RequestLifeCycleManager {
     /**
      * if one action method has a HttpServletResponse argument, then suppose user want process response manually,
      * will ignore the view rendering phase.
-     * @param adf
+     * @param actionMethod
      * @return
      */
     @Override
-    public boolean isResponseProcessedManually(ActionMethod adf) {
-        return FLists.create(adf.paramDefinitions()).any(new Predicate<ActionMethodParameter>() {
-            
+    public boolean isResponseProcessedManually(ActionMethod actionMethod) {
+        return FLists.create(actionMethod.parameters()).any(new Predicate<ActionMethodParameter>() {
+
             @Override
             public boolean apply(ActionMethodParameter apd) {
                 return apd.paramType().equals(HttpServletResponse.class);

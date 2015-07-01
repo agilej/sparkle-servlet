@@ -11,6 +11,7 @@ import me.donnior.sparkle.core.resolver.ArgumentResolver;
  * Argument resolver for argument  with type {@link Params} 
  *
  */
+@Deprecated
 public class ParamInstanceArgumentResolver implements ArgumentResolver {
 
     @Override
