@@ -10,7 +10,8 @@ import me.donnior.sparkle.servlet.view.RedirectViewRender;
 public class ServletViewRenderManager extends ViewRenderManager {
 
     @Override
-    public void registerCustomViewRenders(List<ViewRender> viewRenders) {
+    public void registerVendorViewRenders(List<ViewRender> viewRenders) {
+        System.out.println("register servlet vendor view renders");
         viewRenders.add(new RedirectViewRender());
         viewRenders.add(new JSPViewRender());
     }
