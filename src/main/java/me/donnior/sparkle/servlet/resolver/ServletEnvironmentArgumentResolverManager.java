@@ -1,6 +1,6 @@
 package me.donnior.sparkle.servlet.resolver;
 
-import me.donnior.sparkle.core.resolver.*;
+import me.donnior.sparkle.core.argument.*;
 
 public class ServletEnvironmentArgumentResolverManager extends AbstractArgumentResolverManager {
     

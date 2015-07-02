@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import me.donnior.sparkle.Params;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.core.ActionMethodParameter;
-import me.donnior.sparkle.core.resolver.ArgumentResolver;
+import me.donnior.sparkle.core.argument.ArgumentResolver;
 
 /**
  * Argument resolver for argument  with type {@link Params} 
