@@ -8,12 +8,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import me.donnior.fava.FHashMap;
-import me.donnior.fava.MConsumer;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.core.ActionMethod;
 import me.donnior.sparkle.core.view.ViewRender;
 import me.donnior.sparkle.core.view.ViewVariablesExposer;
+import org.agilej.fava.FHashMap;
+import org.agilej.fava.MConsumer;
 
 public class JSPViewRender implements ViewRender {
 

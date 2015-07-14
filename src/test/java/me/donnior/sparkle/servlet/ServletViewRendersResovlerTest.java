@@ -17,7 +17,7 @@ public class ServletViewRendersResovlerTest {
     public void testResolveViewRenders(){
         ServletViewRenderManager r = new ServletViewRenderManager();
         List<Class<? extends ViewRender>> viewRenderClasses = new ArrayList<Class<? extends ViewRender>>();
-        List<? extends ViewRender> resovleRegisteredViewRenders = r.resolveRegisteredViewRenders(viewRenderClasses);
+        List<? extends ViewRender> resovleRegisteredViewRenders = r.getAllOrderedViewRenders();
         
         assertTrue(resovleRegisteredViewRenders.size() == 4);
         assertEquals(RedirectViewRender.class, resovleRegisteredViewRenders.get(2).getClass());

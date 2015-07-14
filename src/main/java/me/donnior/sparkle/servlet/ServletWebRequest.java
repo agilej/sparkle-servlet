@@ -13,11 +13,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
-import me.donnior.fava.Function;
-import me.donnior.fava.util.FLists;
+
 import me.donnior.sparkle.Multipart;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.WebResponse;
+import org.agilej.fava.Function;
+import org.agilej.fava.util.FLists;
 
 public class ServletWebRequest implements WebRequest{
 

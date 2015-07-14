@@ -10,12 +10,12 @@ import java.util.List;
 
 import me.donnior.sparkle.annotation.Json;
 import me.donnior.sparkle.annotation.Param;
-import me.donnior.sparkle.core.ActionMethodDefinition;
-import me.donnior.sparkle.core.ActionMethodParamDefinition;
-import me.donnior.sparkle.core.resolver.ActionMethodDefinitionFinder;
-import me.donnior.sparkle.core.resolver.DefaultActionParamDefinition;
-import me.donnior.sparkle.core.resolver.DefaultActionParamDefinition;
-import me.donnior.sparkle.core.resolver.SimpleArgumentResolver;
+import me.donnior.sparkle.core.ActionMethod;
+import me.donnior.sparkle.core.ActionMethodParameter;
+import me.donnior.sparkle.core.argument.ParamsArgumentResolver;
+import me.donnior.sparkle.core.argument.SimpleArgumentResolver;
+import me.donnior.sparkle.core.method.ActionMethodResolver;
+import me.donnior.sparkle.core.method.DefaultActionMethodParameter;
 import me.donnior.sparkle.servlet.ServletWebRequest;
 import me.donnior.sparkle.servlet.resolver.ParamInstanceArgumentResolver;
 import me.donnior.sparkle.servlet.resolver.ServletEnvironmentArgumentResolverManager;
@@ -37,8 +37,8 @@ public class ServletEnvironmentArgumentResolverManagerTest {
     @Test
     public void testDefaultConstructor(){
         assertEquals(6, manager.registeredResolvers().size());
-        assertEquals(ParamInstanceArgumentResolver.class, manager.registeredResolvers().get(3).getClass());
-        assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(4).getClass());
+        assertEquals(ParamsArgumentResolver.class, manager.registeredResolvers().get(5).getClass());
+        assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(0).getClass());
     }
     
     @Test (expected=RuntimeException.class)
@@ -53,8 +53,8 @@ public class ServletEnvironmentArgumentResolverManagerTest {
             }
         });
         
-        ActionMethodParamDefinition actionParamDefinition = 
-                new DefaultActionParamDefinition(String.class, annotations);
+        ActionMethodParameter actionParamDefinition =
+                new DefaultActionMethodParameter(String.class, annotations);
         
         manager.resolve(actionParamDefinition, null);
         fail();
@@ -63,13 +63,13 @@ public class ServletEnvironmentArgumentResolverManagerTest {
     @Test
     public void testResolveSucceed(){
         
-        ActionMethodDefinition actionParamDefinition = 
-                new ActionMethodDefinitionFinder().find(ControllerForDefaultParamResolversManagerTest.class, "index");
-        assertEquals(1, actionParamDefinition.paramDefinitions().size());
+        ActionMethod actionParamDefinition =
+                new ActionMethodResolver().find(ControllerForDefaultParamResolversManagerTest.class, "index");
+        assertEquals(1, actionParamDefinition.parameters().size());
                
                 
-        Object obj = manager.resolve(actionParamDefinition.paramDefinitions().get(0), 
-                new ServletWebRequest(new HttpServletRequestAdapter(),null));
+        Object obj = manager.resolve(actionParamDefinition.parameters().get(0),
+                new ServletWebRequest(new HttpServletRequestAdapter(), null));
         assertNull(obj);
     }
     
