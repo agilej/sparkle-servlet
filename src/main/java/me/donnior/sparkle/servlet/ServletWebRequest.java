@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 
+import me.donnior.sparkle.Cookie;
 import me.donnior.sparkle.Multipart;
 import me.donnior.sparkle.WebRequest;
 import me.donnior.sparkle.WebResponse;
@@ -172,5 +173,89 @@ public class ServletWebRequest implements WebRequest{
         this.asyncContext.complete();
     }
 
+    //TODO create Cookie adapter for servlet cookie directly, then user can change it's attribute
+    @Override
+    public Cookie[] cookies() {
+        javax.servlet.http.Cookie[] _cookies = this.request.getCookies();
+        if (_cookies == null) return new Cookie[0];
+        Cookie[] cookies = new Cookie[_cookies.length];
+        for (int i = 0; i< _cookies.length; i++){
+            javax.servlet.http.Cookie _cookie = _cookies[i];
+            cookies[i] = new Cookie(_cookie.getName()).value(_cookie.getValue());
+
+            //TODO use cookie adapter
+            //cookies[i] = new CookieAdapter(_cookie);
+        }
+        return cookies;
+    }
+}
+
+/*
+
+class CookieAdapter extends Cookie{
+
+    private javax.servlet.http.Cookie servletCookie;
+
+    public CookieAdapter(String name) {
+        super(name);
+    }
+
+    public CookieAdapter(javax.servlet.http.Cookie servletCookie){
+        super(null);
+        this.servletCookie = servletCookie;
+    }
+
+
+    @Override
+    public String name() {
+        return this.servletCookie.getName();
+    }
+
+    @Override
+    public Cookie value(String value) {
+        this.servletCookie.setValue(value);
+        return this;
+    }
+
+    @Override
+    public String value() {
+        return this.servletCookie.getValue();
+    }
+
+    @Override
+    public Cookie path(String path) {
+        this.servletCookie.setPath(path);
+        return this;
+    }
+
+    @Override
+    public String path() {
+        return this.servletCookie.getPath();
+    }
+
+    @Override
+    public Cookie maxAge(int maxAge) {
+        this.servletCookie.setMaxAge(maxAge);
+        return this;
+    }
+
+    @Override
+    public int maxAge() {
+        return this.servletCookie.getMaxAge();
+    }
+
+    @Override
+    public Cookie domain(String domain) {
+        this.servletCookie.setDomain(domain);
+        return this;
+    }
+
+    @Override
+    public String domain() {
+        return this.servletCookie.getDomain();
+    }
 
 }
+
+
+ */

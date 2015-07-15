@@ -5,6 +5,7 @@ import java.io.Writer;
 
 import javax.servlet.http.HttpServletResponse;
 
+import me.donnior.sparkle.Cookie;
 import me.donnior.sparkle.WebResponse;
 
 public class ServletWebResponse implements WebResponse {
@@ -53,5 +54,13 @@ public class ServletWebResponse implements WebResponse {
             throw new RuntimeException(e);
         }
     }
-    
+
+    @Override
+    public void addCookie(Cookie cookie) {
+        javax.servlet.http.Cookie _cookie = new javax.servlet.http.Cookie(cookie.name(),cookie.value());
+        _cookie.setDomain(cookie.domain());
+        _cookie.setMaxAge(cookie.maxAge());
+        _cookie.setPath(cookie.path());
+        this.response.addCookie(_cookie);
+    }
 }

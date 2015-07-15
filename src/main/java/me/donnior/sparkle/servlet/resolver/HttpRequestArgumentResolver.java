@@ -7,18 +7,18 @@ import me.donnior.sparkle.core.ActionMethodParameter;
 import me.donnior.sparkle.core.argument.ArgumentResolver;
 
 /**
- * Argument resolver for argument with type HttpServletRequest 
+ * Argument resolver for argument with type {@link HttpServletRequest}
  *
  */
 public class HttpRequestArgumentResolver implements ArgumentResolver {
 
     @Override
-    public boolean support(ActionMethodParameter actionParamDefinition) {
-        return actionParamDefinition.paramType().equals(HttpServletRequest.class);
+    public boolean support(ActionMethodParameter actionMethodParameter) {
+        return actionMethodParameter.paramType().equals(HttpServletRequest.class);
     }
 
     @Override
-    public Object resolve(ActionMethodParameter actionParamDefinition, WebRequest request) {
+    public Object resolve(ActionMethodParameter actionMethodParameter, WebRequest request) {
         return request.getOriginalRequest();
     }
 

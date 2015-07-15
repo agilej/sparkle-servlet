@@ -11,6 +11,7 @@ public class ServletEnvironmentArgumentResolverManager extends AbstractArgumentR
         registerArgumentResolver(new HttpResponseArgumentResolver());
         registerArgumentResolver(new PathVariableArgumentResolver());
         registerArgumentResolver(new ParamsArgumentResolver());
+        registerArgumentResolver(new CookiesArgumentResolver());
     }
         
 }

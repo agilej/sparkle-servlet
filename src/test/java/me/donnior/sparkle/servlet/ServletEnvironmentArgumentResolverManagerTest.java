@@ -17,7 +17,6 @@ import me.donnior.sparkle.core.argument.SimpleArgumentResolver;
 import me.donnior.sparkle.core.method.ActionMethodResolver;
 import me.donnior.sparkle.core.method.DefaultActionMethodParameter;
 import me.donnior.sparkle.servlet.ServletWebRequest;
-import me.donnior.sparkle.servlet.resolver.ParamInstanceArgumentResolver;
 import me.donnior.sparkle.servlet.resolver.ServletEnvironmentArgumentResolverManager;
 
 import org.junit.Before;
@@ -36,7 +35,7 @@ public class ServletEnvironmentArgumentResolverManagerTest {
     
     @Test
     public void testDefaultConstructor(){
-        assertEquals(6, manager.registeredResolvers().size());
+        assertEquals(7, manager.registeredResolvers().size());
         assertEquals(ParamsArgumentResolver.class, manager.registeredResolvers().get(5).getClass());
         assertEquals(SimpleArgumentResolver.class, manager.registeredResolvers().get(0).getClass());
     }
