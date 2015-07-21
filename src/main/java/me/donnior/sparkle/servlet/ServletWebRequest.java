@@ -14,14 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 
-import me.donnior.sparkle.Cookie;
-import me.donnior.sparkle.Multipart;
-import me.donnior.sparkle.WebRequest;
-import me.donnior.sparkle.WebResponse;
+import me.donnior.sparkle.*;
+import me.donnior.sparkle.core.request.AbstractWebRequest;
 import org.agilej.fava.Function;
 import org.agilej.fava.util.FLists;
 
-public class ServletWebRequest implements WebRequest{
+public class ServletWebRequest extends AbstractWebRequest{
 
     private final WebResponse webResponse;
     private final HttpServletRequest request;
@@ -188,7 +186,19 @@ public class ServletWebRequest implements WebRequest{
         }
         return cookies;
     }
+
+    @Override
+    public String getSessionId() {
+        if (sessionStore() instanceof ServletVendorSessionStore){
+            return this.request.getSession().getId();
+        }
+        throw new RuntimeException("should use default id");
+//        return super.getSessionId();
+    }
+
 }
+
+
 
 /*
 
