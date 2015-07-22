@@ -8,6 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import me.donnior.sparkle.Cookie;
 import me.donnior.sparkle.WebResponse;
 
+/**
+ * One {@link WebResponse} implementation for servlet-runtime, it an adaptor for {@link HttpServletResponse}
+ */
 public class ServletWebResponse implements WebResponse {
 
     private HttpServletResponse response;

@@ -6,16 +6,20 @@ import me.donnior.sparkle.core.request.SessionStore;
 import javax.servlet.http.HttpServletRequest;
 
 
+/**
+ * One {@link SessionStore} implementation which delegate all session operation to servlet api
+ */
 public class ServletVendorSessionStore implements SessionStore{
+
     @Override
-    public void set(WebRequest webRequest, String s, Object o) {
+    public void set(WebRequest webRequest, String name, Object value) {
         HttpServletRequest request = webRequest.getOriginalRequest();
-        request.getSession().setAttribute(s, o);
+        request.getSession().setAttribute(name, value);
     }
 
     @Override
-    public Object get(WebRequest webRequest, String s) {
+    public Object get(WebRequest webRequest, String name) {
         HttpServletRequest request = webRequest.getOriginalRequest();
-        return request.getSession().getAttribute(s);
+        return request.getSession().getAttribute(name);
     }
 }
