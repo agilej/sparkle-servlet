@@ -22,4 +22,10 @@ public class ServletVendorSessionStore implements SessionStore{
         HttpServletRequest request = webRequest.getOriginalRequest();
         return request.getSession().getAttribute(name);
     }
+
+    @Override
+    public void remove(WebRequest webRequest, String s) {
+        HttpServletRequest request = webRequest.getOriginalRequest();
+        request.getSession().removeAttribute(s);
+    }
 }
