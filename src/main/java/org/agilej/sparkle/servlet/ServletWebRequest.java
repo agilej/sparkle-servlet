@@ -205,6 +205,21 @@ public class ServletWebRequest extends AbstractWebRequest{
         return super.getSessionId();
     }
 
+    @Override
+    public String host() {
+        return this.request.getServerName();
+    }
+
+    @Override
+    public int ip() {
+        return this.request.getServerPort();
+    }
+
+    @Override
+    public String scheme() {
+        return this.request.getScheme();
+    }
+
 }
 
 

@@ -8,7 +8,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
-import org.agilej.sparkle.engine.SparkleEngine;
+import org.agilej.sparkle.core.engine.SparkleEngine;
 import org.agilej.sparkle.servlet.ServletSpecific;
 import org.agilej.sparkle.servlet.StaticWrapperServlet;
 

@@ -6,7 +6,7 @@ import javax.servlet.ServletException;
 
 import org.agilej.sparkle.HTTPMethod;
 import org.agilej.sparkle.WebRequest;
-import org.agilej.sparkle.engine.SparkleEngine;
+import org.agilej.sparkle.core.engine.SparkleEngine;
 
 import org.junit.Before;
 import org.junit.Ignore;

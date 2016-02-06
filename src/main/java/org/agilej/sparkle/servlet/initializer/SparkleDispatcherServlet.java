@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.agilej.sparkle.HTTPMethod;
-import org.agilej.sparkle.engine.SparkleEngine;
+import org.agilej.sparkle.core.engine.SparkleEngine;
 import org.agilej.sparkle.servlet.ServletSpecific;
 import org.agilej.sparkle.servlet.ServletWebRequest;
 

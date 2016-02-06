@@ -3,7 +3,7 @@ package org.agilej.sparkle.servlet.resolver;
 import javax.servlet.http.HttpServletRequest;
 
 import org.agilej.sparkle.WebRequest;
-import org.agilej.sparkle.core.ActionMethodParameter;
+import org.agilej.sparkle.core.action.ActionMethodParameter;
 import org.agilej.sparkle.core.argument.ArgumentResolver;
 
 /**
