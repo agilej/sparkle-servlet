@@ -1,7 +1,7 @@
 package org.agilej.sparkle.servlet;
 
 import org.agilej.sparkle.WebRequest;
-import org.agilej.sparkle.core.request.SessionStore;
+import org.agilej.sparkle.mvc.SessionStore;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * One {@link SessionStore} implementation which delegate all session operation to servlet api
  */
-public class ServletVendorSessionStore implements SessionStore{
+public class ServletVendorSessionStore implements SessionStore {
 
     @Override
     public void set(WebRequest webRequest, String name, Object value) {

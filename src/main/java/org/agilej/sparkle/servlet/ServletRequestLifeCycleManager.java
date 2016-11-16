@@ -3,11 +3,11 @@ package org.agilej.sparkle.servlet;
 import javax.servlet.http.HttpServletResponse;
 
 
-import org.agilej.sparkle.core.action.ActionMethod;
-import org.agilej.sparkle.core.action.ActionMethodParameter;
-import org.agilej.sparkle.core.engine.RequestLifeCycleManager;
 import org.agilej.fava.Predicate;
 import org.agilej.fava.util.FLists;
+import org.agilej.sparkle.core.ext.RequestLifeCycleManager;
+import org.agilej.sparkle.mvc.ActionMethod;
+import org.agilej.sparkle.mvc.ActionMethodParameter;
 
 public class ServletRequestLifeCycleManager implements RequestLifeCycleManager {
 

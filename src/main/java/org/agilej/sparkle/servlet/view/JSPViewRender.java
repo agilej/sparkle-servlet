@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.agilej.sparkle.WebRequest;
-import org.agilej.sparkle.core.action.ActionMethod;
-import org.agilej.sparkle.core.view.ViewRender;
+
 import org.agilej.sparkle.core.view.ViewVariablesExposer;
 import org.agilej.fava.FHashMap;
 import org.agilej.fava.MConsumer;
+import org.agilej.sparkle.mvc.ActionMethod;
+import org.agilej.sparkle.mvc.ViewRender;
 
 public class JSPViewRender implements ViewRender {
 

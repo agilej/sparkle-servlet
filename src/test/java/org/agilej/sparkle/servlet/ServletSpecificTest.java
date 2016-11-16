@@ -1,7 +1,8 @@
 package org.agilej.sparkle.servlet;
 
-import org.agilej.sparkle.core.argument.ArgumentResolver;
-import org.agilej.sparkle.core.view.ViewRender;
+
+import org.agilej.sparkle.mvc.ArgumentResolver;
+import org.agilej.sparkle.mvc.ViewRender;
 import org.agilej.sparkle.servlet.resolver.HttpRequestArgumentResolver;
 import org.agilej.sparkle.servlet.resolver.HttpResponseArgumentResolver;
 import org.agilej.sparkle.servlet.view.JSPViewRender;

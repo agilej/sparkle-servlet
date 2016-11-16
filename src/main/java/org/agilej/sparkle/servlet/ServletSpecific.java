@@ -1,12 +1,12 @@
 package org.agilej.sparkle.servlet;
 
-import org.agilej.sparkle.core.argument.ArgumentResolver;
-import org.agilej.sparkle.core.argument.ArgumentResolverManager;
-import org.agilej.sparkle.core.view.ViewRender;
-import org.agilej.sparkle.core.engine.RequestLifeCycleManager;
+
 import org.agilej.sparkle.core.ext.EnvSpecific;
+import org.agilej.sparkle.core.ext.RequestLifeCycleManager;
 import org.agilej.sparkle.core.ext.VendorViewRenderProvider;
 import org.agilej.sparkle.core.ext.VendorArgumentResolverProvider;
+import org.agilej.sparkle.mvc.ArgumentResolver;
+import org.agilej.sparkle.mvc.ViewRender;
 import org.agilej.sparkle.servlet.view.JSPViewRender;
 import org.agilej.sparkle.servlet.view.RedirectViewRender;
 import org.agilej.sparkle.servlet.resolver.HttpResponseArgumentResolver;

@@ -3,8 +3,9 @@ package org.agilej.sparkle.servlet.resolver;
 import javax.servlet.http.HttpServletRequest;
 
 import org.agilej.sparkle.WebRequest;
-import org.agilej.sparkle.core.action.ActionMethodParameter;
-import org.agilej.sparkle.core.argument.ArgumentResolver;
+import org.agilej.sparkle.mvc.ActionMethodParameter;
+import org.agilej.sparkle.mvc.ArgumentResolver;
+
 
 /**
  * Argument resolver for argument with type {@link HttpServletRequest}
